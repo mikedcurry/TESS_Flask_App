@@ -2,7 +2,7 @@
 from decouple import config
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-
+from .models import DB
 
 def create_app():
     """create and config an instance of the Flask App"""
@@ -12,6 +12,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = config('DATABASE_URL')
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['ENV'] = config('ENV')
+    DB.init_app(app)
 
     # Create home route
     @app.route('/')
@@ -19,4 +20,5 @@ def create_app():
         return render_template('home.html', title = 'Home')
     
     return app
+    
     

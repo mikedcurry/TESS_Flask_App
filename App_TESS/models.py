@@ -3,11 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 
 DB = SQLAlchemy()
 
-# create <table> class
-# class User(DB.Model):
-#     id = DB.Column(DB.Integer, primary_key=True)
-#     # Example Columns below
-#     # name = DB.Column(DB.String(15), nullable=False)
-#     # newest_tweet_id = DB.Column(DB.BigInteger)
-#     def __repr__(self):
-#         return '<User {}>'.format(self.name)
+# create visualization info class
+class Visual_Table(DB.Model):
+    id = DB.Column(DB.Integer, primary_key=True)
+    tic_id = DB.Column(DB.BigInteger, nullable=False)
+    data_url = DB.Column(DB.String(100))
+    def __repr__(self):
+        return '(TIC_ID %r, url %r)' %(self.tic_id, self.data_url)
+
+# class 
