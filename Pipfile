@@ -6,6 +6,15 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+python-decouple = "*"
+python-dotenv = "*"
+flask-sqlalchemy = "*"
+requests = "*"
+matplotlib = "*"
+pandas = "*"
+astropy-io = "*"
+numpy = "*"
+astropy = "*"
 
 [requires]
 python_version = "3.7"
