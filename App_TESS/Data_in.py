@@ -1,9 +1,8 @@
 import pandas as pd
-<<<<<<< HEAD
 from flask_sqlalchemy import SQLAlchemy
 from astroquery.mast import Catalogs, Observations
 from astropy.table import Table
-from tqdm import tqdm                       # Will need to remove this througout
+# from tqdm import tqdm                       # Will need to remove this througout
 from .models import *
 
 
@@ -19,7 +18,7 @@ def get_visual_data():
 
         # Getting additional data on TESS Objects of Interest from STScI:
         tic_catalog = pd.DataFrame()
-        for tic_id in tqdm(toi['TIC_ID'].unique()):
+        for tic_id in toi['TIC_ID'].unique():
             row_data = Catalogs.query_criteria(catalog="Tic", ID=tic_id)
             row_data = row_data.to_pandas()
             tic_catalog = tic_catalog.append(row_data)
@@ -29,7 +28,7 @@ def get_visual_data():
 
         # Getting all dataproducts for TESS Objects of Interest from STScI:
         dataproducts = pd.DataFrame()
-        for tic_id in tqdm(toi['TIC_ID']):                
+        for tic_id in toi['TIC_ID']:                
             row_data = Observations.query_criteria(obs_collection="TESS",
                                                 target_name=tic_id)
             row_data = row_data.to_pandas()
@@ -121,7 +120,7 @@ def get_tic_catalog():
     toi.columns = toi.columns.str.replace(' ', '_')
     try:
         tic_catalog = pd.DataFrame()
-        for tic_id in tqdm(toi['TIC_ID'].unique()):
+        for tic_id in toi['TIC_ID'].unique():
             row_data = Catalogs.query_criteria(catalog="Tic", ID=tic_id)
             row_data = row_data.to_pandas()
             tic_catalog = tic_catalog.append(row_data)
@@ -187,36 +186,3 @@ def get_tic_catalog():
         DB.session.add(new)
         DB.session.commit()
     return
-=======
-from astroquery.mast import Catalogs, Observations
-from astropy.table import Table
-from tqdm import tqdm
-from .models import DB, Visual_Table
-
-# Getting labelled TESS Objects of Interest dataframe from Caltech:
-
-
-# fetch TIC IDs from caltech
-def get_data():
-    try:
-        toi = pd.read_csv('https://exofop.ipac.caltech.edu/tess/' + 
-                  'download_toi.php?sort=toi&output=csv')
-        dataproducts = pd.DataFrame()
-        for tic_id in tqdm(toi['TIC ID']):
-            row_data = Observations.query_criteria(obs_collection="TESS",
-                                           target_name=tic_id)
-            row_data = row_data.to_pandas()
-            dataproducts = dataproducts.append(row_data)
-        dataproducts = dataproducts.reset_index(drop=True)
-        useful_data = dataproducts[['target_name', 'target_name']]
-        # Not sure if the below will work...
-        for row in useful_data:
-            pair = Visual_Table(tic_id = useful_data['target_name']
-                                , data_url = useful_data['target_name'])
-            DB.session.add(pair)
-    except:
-        print('Error importing data')
-        raise e
-    else:
-        DB.session.commit()
->>>>>>> master

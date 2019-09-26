@@ -2,7 +2,8 @@
 from decouple import config
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from .models import DB
+from .models import *
+from .light_curve import *
 
 def create_app():
     """create and config an instance of the Flask App"""
@@ -19,6 +20,14 @@ def create_app():
     def root():
         return render_template('home.html', title = 'Home')
     
+    @app.route('/total_reset')
+    def total_reset():
+        DB.drop_all()
+        DB.create_all()
+        get_visual_data()
+        get_toi_data()
+        get_tic_catalog()
+        return render_template('home.html', title='Reset Database!')
 
     return app
     
