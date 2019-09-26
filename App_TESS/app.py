@@ -15,7 +15,6 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['ENV'] = config('ENV')
     DB.init_app(app)
-    print('DB initialized from app.py')
 
     # Create home route
     @app.route('/')

@@ -12,6 +12,7 @@ def get_visual_data():
         # Getting labelled TESS Objects of Interest dataframe from Caltech:
         toi = pd.read_csv('https://exofop.ipac.caltech.edu/tess/' + 
                   'download_toi.php?sort=toi&output=csv')
+        print('got past csv import')
         # Isolating TIC IDs and TFOPWG Disposition values to use as target:
         toi = toi[['TIC ID', 'TFOPWG Disposition']]
         toi = toi.rename(columns={'TIC ID': 'TIC_ID'})
@@ -25,6 +26,7 @@ def get_visual_data():
         tic_catalog = tic_catalog.reset_index(drop=True)
         # Renaming ID column to make this consistent with Caltech TOI dataframe:
         tic_catalog = tic_catalog.rename(columns={'ID': 'TIC_ID'})
+        print('got past merging toi with tic_cat')
 
         # Getting all dataproducts for TESS Objects of Interest from STScI:
         dataproducts = pd.DataFrame()
@@ -190,6 +192,6 @@ def get_tic_catalog():
 def toi_df():
     df = pd.DataFrame()
     rows = TOI_Table.query.all()
-    
+
     
     return df
