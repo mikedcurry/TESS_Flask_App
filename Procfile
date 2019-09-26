@@ -1,1 +1,1 @@
-web: gunicorn App_TESS:APP -t 120
+web: gunicorn App_TESS:APP -t 1800
