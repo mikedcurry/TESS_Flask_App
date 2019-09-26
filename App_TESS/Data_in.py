@@ -23,6 +23,7 @@ def get_visual_data():
             row_data = Catalogs.query_criteria(catalog="Tic", ID=tic_id)
             row_data = row_data.to_pandas()
             tic_catalog = tic_catalog.append(row_data)
+            print('query for loop ... one more time')
         tic_catalog = tic_catalog.reset_index(drop=True)
         # Renaming ID column to make this consistent with Caltech TOI dataframe:
         tic_catalog = tic_catalog.rename(columns={'ID': 'TIC_ID'})
