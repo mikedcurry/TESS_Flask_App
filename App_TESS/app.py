@@ -4,6 +4,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from .models import *
 from .light_curve import *
+from .Data_in import *
 
 def create_app():
     """create and config an instance of the Flask App"""
