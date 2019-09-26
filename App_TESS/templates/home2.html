@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <!-- comment like this - add - {{title}} -->
+    <title>Planet Finder:TESS {{title}}</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+  </head>
+  <body>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+​
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+​
+    <!-- Top Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">TWpredictR app</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+    </nav>
+​
+    <h1>Let's Find Some Planets!!!</h1>
+​
+      {% block content %}
+​
+      <h1>TIC_Cat Table</h1>
+      <table>
+          <tr>
+            <th>TIC Id</th>
+            <th>ra</th>
+            <th>rec</th>
+            <th>pmRA</th>
+          </tr>
+          {% for tic in tic_table %}
+          <tr>
+            <td> <a href="{{ tic.TIC_ID }}">{{ tic.TIC_ID }}</a> </td>
+            <td>{{ tic.ra }}</td>
+            <td>{{ tic.rec }}</td>
+            <td>{{ tic.pmRA }}</td>
+          </tr>
+          {% endfor %}
+        </table>  
+  
+​
+​
+​
+​
+​
+      <table>
+        <tr>
+          <th>TIC Id</th>
+          <th>TOI</th>
+          <th>Epoch</th>
+          <th>Period</th>
+        </tr>
+        {% for toi in toi_table %}
+        <tr>
+          <td> <a href="{{ toi.TIC_ID }}">{{ toi.TIC_ID }}</a> </td>
+          <td>{{ toi.TOI }}</td>
+          <td>{{ toi.Epoch }}</td>
+          <td>{{ toi.Period }}</td>
+​
+        </tr>
+        {% endfor %}
+      </table>  
+​
+​
+​
+      {% endblock %}
+​
+    </body>
+</html>

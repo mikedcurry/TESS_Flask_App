@@ -1,0 +1,29 @@
+body { background-color: #091c27, font-family: 
+"Lucida Sans Unicode", "Lucida Grande", sans-serif;}
+
+a, h1, h2       { color: #fff; }
+h1, h2          { margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1em; }
+
+table.dataframe, .dataframe th, .dataframe td {
+  border: none;
+  border-bottom: 1px solid #C8C8C8;
+  border-collapse: collapse;
+  text-align:center;
+  padding: 10px;
+  margin-bottom: 40px;
+  font-size: .8em;
+}
+
+.rows_col_css th {
+    background-color: #293F68;
+    color: white;
+}
+
+tr:nth-child(odd) { background-color:#222222; }
+tr:nth-child(even) { background-color:#333333;}
+
+tr:nth-child(odd) ,tr:nth-child(even) {color: white}
+
+tr:hover            { background-color: #0B498F;}

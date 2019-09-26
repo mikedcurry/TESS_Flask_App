@@ -19,8 +19,13 @@ def create_app():
     # Create home route
     @app.route('/')
     def root():
-        return render_template('home.html', title = 'Home')
-    
+        #Pull example data from Notebooks folder. Will be be pulled from sql DB in the future.
+        return render_template('home.html', 
+                                title = 'Findin Planets:TESS', 
+                                toi_table=(TOI_Table.query.all()), 
+                                tic_table=(TIC_Cat_Table.query.all())
+                               )     
+
     @app.route('/total_reset')
     def total_reset():
         DB.drop_all()
@@ -29,6 +34,17 @@ def create_app():
         get_toi_data()
         get_tic_catalog()
         return render_template('home.html', title='Reset Database!')
+
+    @app.route('/predict')
+    def predict():
+        get_all_predictions()
+        return render_template('home.html', title='prediction pipeline works!')
+
+    # @app.route('/test')
+    #     def get_urls(tic_id):
+    #     urls = Visual_Table.query.filter_by(TIC_ID=tic_id).all()
+    #     urls = [url.dataURL for url in urls]
+    #     return urls
 
     return app
     

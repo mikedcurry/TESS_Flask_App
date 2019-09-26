@@ -80,14 +80,14 @@ def save_all_lcs(tic_id):
     count = 0
     for lc in get_lcs(get_urls(tic_id)):
         plot_lc(lc)
-        plt.savefig(fname=('images/'+ str(tic_id) + '_lc_' + str(count)))
+        plt.savefig(fname=(str(tic_id) + '_lc_' + str(count)))
         count += 1
 
 def save_all_dvts(tic_id):
     count = 0
     for dvt in get_dvts(get_urls(tic_id)):
         plot_dvt(dvt)
-        plt.savefig(fname=('images/' + str(tic_id) + '_dvt_' + str(count)))
+        plt.savefig(fname=(str(tic_id) + '_dvt_' + str(count)))
         count += 1
 
 # def save_all_lcs(tic_id):
