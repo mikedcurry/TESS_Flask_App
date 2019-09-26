@@ -186,3 +186,10 @@ def get_tic_catalog():
         DB.session.add(new)
         DB.session.commit()
     return
+
+def toi_df():
+    df = pd.DataFrame()
+    rows = TOI_Table.query.all()
+    
+    
+    return df
