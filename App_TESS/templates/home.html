@@ -9,13 +9,11 @@
     </head>
     <body>
     
-        <h1>Let's Find Some Planets!!!</h1>
+        <h2>Let's Find Some Planets!!!</h2>
         
         <div class=page>
 
 <table style="width:100%">
-
-
 
 <tr>  
   
@@ -23,18 +21,43 @@
 <th>TOI</th>
 <th>Epoch</th>
 <th>Period</th>
+<th>Duration</th>
+<th>Depth</th>
+<th>Planet_Radius</th>
+<th>Planet_Insolation</th>
+<th>Planet_Equil_Temp</th>
+<th>Planet_SNR</th>
+<th>Stellar_Distance</th>
+<th>Stellar_log_g</th>
+<th>Stellar_Radius</th>
+<th>TFOPWG_Disposition</th>
 
 </tr>  
 
 {% for toi in toi_table %}
 <tr>
-  <td> <a href="/home/about">{{ toi.TIC_ID }}</a> </td>
+ <td> <a href="/image">{{ toi.TIC_ID }}</a> </td>
 <td>{{ toi.TOI }}</td>
 <td>{{ toi.Epoch }}</td>
 <td>{{ toi.Period }}</td>
+<td>{{ toi.Duration }}</td>
+<td>{{ toi.Depth }}</td>
+<td>{{ toi.Planet_Radius }}</td>
+<td>{{ toi.Planet_Insolation }}</td>
+<td>{{ toi.Planet_Equil_Temp }}</td>
+<td>{{ toi.Planet_SNR }}</td>
+<td>{{ toi.Stellar_Distance }}</td>
+<td>{{ toi.Stellar_log_g }}</td>
+<td>{{ toi.Stellar_Radius }}</td>
+<td>{{ toi.TFOPWG_Disposition }}</td>
 </tr>
 {% endfor %}
 
- 
 
 </table> 
+
+</div>
+
+    </body>
+</html>
+
