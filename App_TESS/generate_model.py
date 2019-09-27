@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from .models import DB, TOI_Table, TIC_Cat_Table
-from sqlalchemy.inspection import inspect
+# from sqlalchemy.inspection import inspect
 
 # Gathering the necessary data from sql database:
 def get_data():

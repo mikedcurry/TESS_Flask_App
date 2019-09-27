@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from .models import *
 from .light_curve import *
 from .Data_in import *
+# from .predict import *
 
 def create_app():
     """create and config an instance of the Flask App"""
@@ -15,13 +16,15 @@ def create_app():
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['ENV'] = config('ENV')
     DB.init_app(app)
+    # with app.app_context():
+    #     db.create_all()
 
     # Create home route
     @app.route('/')
     def root():
         #Pull example data from Notebooks folder. Will be be pulled from sql DB in the future.
         return render_template('home.html', 
-                                title = 'Findin Planets:TESS', 
+                                title = 'Finding Planets:TESS', 
                                 toi_table=(TOI_Table.query.all()), 
                                 tic_table=(TIC_Cat_Table.query.all())
                                )     
