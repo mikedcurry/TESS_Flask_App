@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    
-            <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+{% extends "home.html" %}
+{% block content %}
 
-    <title>Light waves</title>
-
-</head>
-    <body>
- <h2>Let's Find Some Planets!!!</h2>
+ <h2>Possible Planets</h2>
 
     
     <div>
@@ -32,7 +25,4 @@
 <img src="/static/images/29781292_dvt_14.png" alt="14"   width="1000" height="275">
  </div>
 
-        
-       </body>
-</html>
-
+{% endblock %}

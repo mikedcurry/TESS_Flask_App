@@ -1,6 +1,6 @@
 body { background-color:#1c1e24;}
 
-a, h1, h2       { color: #fff; }
+a, h1, h2       { color: rgb(151, 109, 109); }
 h1, h2          { text-align:center;}
    
 h2 {
@@ -24,12 +24,12 @@ table.dataframe, .dataframe th, .dataframe td {
 
 .rows_col_css th {
     background-color: #293F68;
-    color: white;
+    color: rgb(81, 126, 55);
 }
 
 tr:nth-child(odd) { background-color:#222222;}
-tr:nth-child(even) { background-color:#333333;}
+tr:nth-child(even) { background-color:#4b2b2b;}
 
-tr:nth-child(odd) ,tr:nth-child(even) {color: white;}
+tr:nth-child(odd) {color: rgb(14, 13, 13);},tr:nth-child(even) {color: white;}
 
 tr:hover            { background-color: #0B498F;}
